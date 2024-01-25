@@ -14,10 +14,26 @@ const onPasswordInput = (event) => {
 
 const auth = async (login, password) => {
   console.log(login, password);
+  const requestBody = {
+    credential: 'string@sting.com',
+    password: 'string',
+    code: '111111'
+  };
+  const response = await fetch('https://usnc.dev-webdevep.ru/auth-back/api/v2/login', {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-Real-IP': 'string',
+    },
+    body: JSON.stringify(requestBody)
+  });
+  console.log(response);
 }
 
 const onAuthClick = () => {
   auth(login.value, password.value);
+
 }
 </script>
 
